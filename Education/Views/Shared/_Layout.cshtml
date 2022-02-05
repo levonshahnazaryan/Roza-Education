@@ -19,9 +19,21 @@
                 <a href="#">Դասավանդում</a>
                 <a href="#">Դպրոցի մասին</a>
                 <div class="headerLine"></div>
-                <div class="btnLogin">
-                    <div></div>
-                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="btnLogin">
+                        <a asp-controller="Account" asp-action="Index">
+                            <div></div>
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="btnLogin">
+                        <div></div>
+                    </div>
+                }
             </div>
         </div>
         <div class="login_box">
@@ -67,7 +79,14 @@
     <footer>
         <div class="footer_left_box">
             <img src='~/images/logo.png' alt="Project">
-            <p>Holisticly aggregate compelling ROI before out-of-the-box benefits. Efficiently create cross functional paradigms without an expanded array of testing procedures.</p>
+            <div class="user_info">
+                <p>Հեռախոսահամար։</p>
+                <p>010 101010</p>
+            </div>
+            <div class="user_info">
+                <p>Էլ․հասցէ։</p>
+                <p>example@gmail.com</p>
+            </div>
         </div>
         <div class="footer_center_box">
             <p class="footer_title">Կայքի հղումներ</p>
