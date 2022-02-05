@@ -17,7 +17,23 @@
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\devextreme\fonts\Roboto-300.woff2" />
+    <None Include="wwwroot\css\devextreme\fonts\Roboto-400.woff2" />
+    <None Include="wwwroot\css\devextreme\fonts\Roboto-500.woff2" />
+    <None Include="wwwroot\css\devextreme\fonts\Roboto-700.woff2" />
+    <None Include="wwwroot\css\devextreme\icons\dxicons.woff2" />
+    <None Include="wwwroot\css\devextreme\icons\dxiconsmaterial.woff2" />
+    <None Include="wwwroot\css\fonts\FontAwesome\fontawesome-webfont.svg" />
+    <None Include="wwwroot\css\fonts\FontAwesome\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\css\fonts\LineAwesome\line-awesome.svg" />
+    <None Include="wwwroot\css\fonts\LineAwesome\line-awesome.woff2" />
     <None Include="wwwroot\js\general.min.js" />
+    <None Include="wwwroot\js\libs\dx-quill.min.js" />
+    <None Include="wwwroot\js\libs\dx.all.min.js" />
+    <None Include="wwwroot\js\libs\dx.aspnet.data.min.js" />
+    <None Include="wwwroot\js\libs\dx.aspnet.mvc.min.js" />
+    <None Include="wwwroot\js\libs\dxdx-quill.min.js" />
+    <None Include="wwwroot\js\libs\dxdx.all.js" />
   </ItemGroup>
 
   <ItemGroup>

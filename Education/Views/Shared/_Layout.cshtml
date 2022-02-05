@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/lib/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true">
 </head>
 <body>
@@ -108,8 +108,8 @@
             </a>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="~/lib/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/OwlCarousel2-2.3.4/dist/owl.carousel.min.js" asp-append-version="true"></script>
     <script src="~/js/general.min.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

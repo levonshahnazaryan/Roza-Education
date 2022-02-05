@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -17,7 +18,7 @@ namespace Domain
         public EduDBContext(DbContextOptions<EduDBContext> options) : base(options) { }
 
         #region Table 
-       // public DbSet<DxNotificationSettings> DxNotificationSettings { get; set; }
+        public DbSet<UsefulLinks> UsefulLinks { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

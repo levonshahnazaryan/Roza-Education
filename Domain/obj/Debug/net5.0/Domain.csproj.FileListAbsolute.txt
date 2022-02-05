@@ -33,3 +33,4 @@ C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInp
 C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.dll
 C:\Education\Roza-Education\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.pdb
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
