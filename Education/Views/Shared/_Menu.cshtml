@@ -1,0 +1,20 @@
+﻿<nav class="menu">
+    <div class="logo">
+        <img src="~/images/logo.png" alt="Education" />
+    </div>
+    <div class="menu-list">
+        <ul>
+            <li><a href="#" class="menu-item item-has-list" data-charid="psyguard">PsyGuard</a></li>
+        </ul>
+    </div>
+    <div class="selected-menu-content" data-parentid="psyguard">
+        <div>
+            <p class="selected-menu-title">Therapist</p>
+            <ul>
+                <li><a asp-controller="PsyGuard" asp-action="Portal" asp-route-kind="1" class="menu-item-child">How PsyGuard works</a></li>
+                <li><a asp-controller="PsyGuard" asp-action="Portal" asp-route-kind="2" class="menu-item-child">Why new therapists are joining</a></li>
+                <li><a asp-controller="PsyGuard" asp-action="Portal" asp-route-kind="3" class="menu-item-child">Requirements to particiapte</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
