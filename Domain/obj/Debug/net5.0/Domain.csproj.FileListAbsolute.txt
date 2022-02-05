@@ -22,3 +22,14 @@ C:\git-projects\Roza-Education\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompile
 C:\git-projects\Roza-Education\Domain\obj\Debug\net5.0\Domain.dll
 C:\git-projects\Roza-Education\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\git-projects\Roza-Education\Domain\obj\Debug\net5.0\Domain.pdb
+C:\Education\Roza-Education\Domain\bin\Debug\net5.0\Domain.deps.json
+C:\Education\Roza-Education\Domain\bin\Debug\net5.0\Domain.dll
+C:\Education\Roza-Education\Domain\bin\Debug\net5.0\ref\Domain.dll
+C:\Education\Roza-Education\Domain\bin\Debug\net5.0\Domain.pdb
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.dll
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\ref\Domain.dll
+C:\Education\Roza-Education\Domain\obj\Debug\net5.0\Domain.pdb
