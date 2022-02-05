@@ -226,6 +226,7 @@ C:\git-projects\Roza-Education\Education\obj\Debug\net5.0\Education.dll
 C:\git-projects\Roza-Education\Education\obj\Debug\net5.0\ref\Education.dll
 C:\git-projects\Roza-Education\Education\obj\Debug\net5.0\Education.pdb
 C:\git-projects\Roza-Education\Education\obj\Debug\net5.0\Education.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Education\Roza-Education\Education\bin\Debug\net5.0\appsettings.Development.json
 C:\Education\Roza-Education\Education\bin\Debug\net5.0\appsettings.json
 C:\Education\Roza-Education\Education\bin\Debug\net5.0\Education.exe
@@ -320,3 +321,5 @@ C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.dll
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\ref\Education.dll
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.pdb
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.genruntimeconfig.cache
+=======
+>>>>>>> 39ab38342ffdbe5137ba1393c299498a22e184de
