@@ -25,6 +25,10 @@ namespace Domain.Services
         {
             return _dbContext.AboutUs.FirstOrDefault();
         }
+        public AboutCollage GetAboutCollage()
+        {
+            return _dbContext.AboutCollage.FirstOrDefault();
+        }
         public bool AddEntity<TEntity>(TEntity entity) where TEntity : class
         {
             try
@@ -79,6 +83,28 @@ namespace Domain.Services
             try
             {
                 var item = _dbContext.AboutUs.Where(ro => ro.AboutUsId == data.AboutUsId).SingleOrDefault();
+                if (item != null)
+                {
+                    item.UContent = data.UContent;
+                    _dbContext.Update(item);
+                }
+                else
+                {
+                    _dbContext.Add(data);
+                }
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool EditAboutCollageContent(AboutCollage data)
+        {
+            try
+            {
+                var item = _dbContext.AboutCollage.Where(ro => ro.AboutCollageId == data.AboutCollageId).SingleOrDefault();
                 if (item != null)
                 {
                     item.UContent = data.UContent;

@@ -15,9 +15,9 @@
                 <img src="~/images/logo.png" alt="Project">
             </a>
             <div class="right_box">
-                <a href="/" class="activeMenu">Գլխավոր էջ</a>
+                <a href="/" class="@(ViewBag.PageName == "home_index" ? "activeMenu" : null)">Գլխավոր էջ</a>
                 <a href="#">Դասավանդում</a>
-                <a href="#">Քոլեջի մասին</a>
+                <a asp-controller="Home" asp-action="AboutCollage" class="@(ViewBag.PageName == "home_aboutcollage" ? "activeMenu" : null)">Քոլեջի մասին</a>
                 <div class="headerLine"></div>
 
                 @if (User.Identity.IsAuthenticated)
@@ -97,7 +97,7 @@
             <div>
                 <a href="/">Գլխավոր էջ</a>
                 <a href="#">Դասավանդում</a>
-                <a href="#">Քոլեջի մասին</a>
+                <a asp-controller="Home" asp-action="AboutCollage">Քոլեջի մասին</a>
             </div>
         </div>
         <div class="footer_right_box">

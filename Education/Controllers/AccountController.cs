@@ -85,6 +85,15 @@ namespace Education.Controllers
             });
         }
 
+        [HttpGet]
+        [Route("[controller]/AboutCollage")]
+        public ViewResult AboutCollage()
+        {
+            return View("AboutCollage", new AboutCollageVM
+            {
+                GetAboutCollage = _eduRepository.GetAboutCollage()
+            });
+        }
 
 
         [HttpGet]

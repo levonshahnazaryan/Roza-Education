@@ -1,0 +1,17 @@
+﻿@using Education.Models.Account
+@model AboutCollageVM
+
+@{
+    ViewData["Title"] = "Քոլեջի մասին";
+    Layout = "_Layout";
+}
+
+<div class="about_content">
+    <div class="about_right_box">
+        <div class="about_title_box">
+            <p class="about_title_first">ՔՈԼԵՋԻ ՄԱՍԻՆ</p>
+            <p class="about_title_last">ՔՈԼԵՋԻ ՄԱՍԻՆ</p>
+        </div>
+        @Html.Raw(Model.GetAboutCollage.UContent)
+    </div>
+</div>

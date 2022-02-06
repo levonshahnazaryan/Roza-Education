@@ -79,7 +79,6 @@ namespace Education.Controllers
             return new EmptyResult();
         }
 
-
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         [Route("[controller]/UpdateAboutUsContent")]
@@ -91,6 +90,20 @@ namespace Education.Controllers
                 UContent = data.UContent
             };
             var res = _eduRepository.EditAboutUsContent(model);
+            return Json(res);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [Route("[controller]/UpdateAboutCollageContent")]
+        public IActionResult UpdateAboutCollageContent([FromBody] AboutCollageVM data)
+        {
+            var model = new AboutCollage
+            {
+                AboutCollageId = data.AboutCollageId,
+                UContent = data.UContent
+            };
+            var res = _eduRepository.EditAboutCollageContent(model);
             return Json(res);
         }
     }

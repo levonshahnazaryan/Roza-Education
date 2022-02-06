@@ -1,3 +1,7 @@
 ﻿@{
     Layout = "_Layout";
+    string currentController = ViewContext.RouteData.Values["controller"].ToString();
+    string actionName = ViewContext.RouteData.Values["action"].ToString();
+    string pageName = currentController.ToLower() + "_" + actionName.ToLower();
+    ViewBag.PageName = pageName;
 }

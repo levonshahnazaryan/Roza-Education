@@ -1,5 +1,6 @@
 ﻿using Domain.Helpers;
 using Domain.Services;
+using Education.Models.Account;
 using Education.Models.Home;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,15 @@ namespace Education.Controllers
             {
                 GetUIUsefulLinks = _eduRepository.GetUIUsefulLinks(),
                 GetAboutUs = _eduRepository.GetAboutUs()
+            });
+        }
+
+        [Route("[controller]/AboutCollage")]
+        public IActionResult AboutCollage()
+        {
+            return View("AboutCollage", new AboutCollageVM
+            {
+                GetAboutCollage = _eduRepository.GetAboutCollage()
             });
         }
     }

@@ -242,3 +242,38 @@ var aboutUsFunctions = {
         return false;
     }
 }
+
+var aboutCollageFunctions = {
+    events: function () {
+        var self = this;
+    },
+    updateContent: function (event, form) {
+        var self = this;
+        event.preventDefault();
+        var aboutCollageId = $(form).attr("data-aboutcollageid");
+        var description = $(form).find("#description-content").dxHtmlEditor('instance').option("value");
+
+        var data = {
+            AboutCollageId: aboutCollageId,
+            UContent: description
+        }
+
+        var token = $("[name=__RequestVerificationToken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/Account/UpdateAboutCollageContent',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            headers: { "RequestVerificationToken": token },
+            success: function (resp) {
+                if (resp) {
+                    generalFunctions.dxToastShow(true, "Փոփոխությունը կատարված է");
+                }
+                else {
+                    generalFunctions.dxToastShow(false, "Փոփոխությունը կատարված չէ");
+                }
+            }
+        });
+        return false;
+    }
+}
