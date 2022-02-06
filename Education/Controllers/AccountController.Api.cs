@@ -1,6 +1,7 @@
 ﻿using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using Domain.Entities;
+using Education.Models.Account;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -76,6 +77,21 @@ namespace Education.Controllers
                 _eduRepository.EditUsefulLinksImgUrl(usefulLinksId, myFile.FileName);
             }
             return new EmptyResult();
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [Route("[controller]/UpdateAboutUsContent")]
+        public IActionResult UpdateAboutUsContent([FromBody] AboutUsVM data)
+        {
+            var model = new AboutUs
+            {
+                AboutUsId = data.AboutUsId,
+                UContent = data.UContent
+            };
+            var res = _eduRepository.EditAboutUsContent(model);
+            return Json(res);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Domain.Helpers;
 using Domain.Services;
 using Education.Models.Account;
+using Education.Models.Home;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -23,17 +24,10 @@ namespace Education.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        [HttpGet]
-        [Route("[controller]/Index")]
-        public ViewResult Index()
-        {
-            return View();
-        }
-
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         [Route("[controller]/Login")]
-        public async Task<IActionResult> Login([FromBody]LoginVM userData)
+        public async Task<IActionResult> Login([FromBody] LoginVM userData)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +68,24 @@ namespace Education.Controllers
         }
 
 
+        [HttpGet]
+        [Route("[controller]/Index")]
+        public ViewResult Index()
+        {
+            return View("Index");
+        }
+
+        [HttpGet]
+        [Route("[controller]/AboutUs")]
+        public ViewResult AboutUs()
+        {
+            return View("AboutUs", new AboutUsVM
+            {
+                GetAboutUs = _eduRepository.GetAboutUs()
+            });
+        }
+
+
 
         [HttpGet]
         [Route("[controller]/UsefulLinksImage/{usefulLinksId}")]
@@ -85,7 +97,7 @@ namespace Education.Controllers
                 UsefulLinksId = usefulLinksId,
                 Img = data.Img,
                 RootUrl = $"/Resources/UsefulLinks/{data.UsefulLinksId}/"
-        });
+            });
         }
     }
 }

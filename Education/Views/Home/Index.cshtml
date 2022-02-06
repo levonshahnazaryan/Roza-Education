@@ -17,35 +17,7 @@
             <p class="about_title_first">ՄԵՐ ՄԱՍԻՆ</p>
             <p class="about_title_last">ՄԵՐ ՄԱՍԻՆ</p>
         </div>
-
-
-
-        <p class="about_title_text">We provide exclusive Courses</p>
-        <p class="about_info">
-            We can help you create positive and permanent changes in your life. Let’s Create Something new and awesome Togeather. High Performance WordPress Theme. Let’s Create Something new and awesome Togeather & Best Services. We are the first
-            and trusted Business Consulting company in your city. The best service is our goal.
-        </p>
-        <div class="checked_content">
-            <div class="checked_box">
-                <img src="~/images/checked.png" alt="Project">
-            </div>
-            <p>High Quality Education Video</p>
-        </div>
-        <div class="checked_content">
-            <div class="checked_box">
-                <img src="~/images/checked.png" alt="Project">
-            </div>
-            <p>You can learn anything online</p>
-        </div>
-        <div class="checked_content">
-            <div class="checked_box">
-                <img src="~/images/checked.png" alt="Project">
-            </div>
-            <p>We list your options by state</p>
-        </div>
-
-
-
+        @Html.Raw(Model.GetAboutUs.UContent)
     </div>
 </div>
 <div class="midl_content"></div>

@@ -21,6 +21,10 @@ namespace Domain.Services
         {
             return _dbContext.UsefulLinks.Find(usefulLinksId);
         }
+        public AboutUs GetAboutUs()
+        {
+            return _dbContext.AboutUs.FirstOrDefault();
+        }
         public bool AddEntity<TEntity>(TEntity entity) where TEntity : class
         {
             try
@@ -63,6 +67,28 @@ namespace Domain.Services
                         _dbContext.SaveChanges();
                     }
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool EditAboutUsContent(AboutUs data)
+        {
+            try
+            {
+                var item = _dbContext.AboutUs.Where(ro => ro.AboutUsId == data.AboutUsId).SingleOrDefault();
+                if (item != null)
+                {
+                    item.UContent = data.UContent;
+                    _dbContext.Update(item);
+                }
+                else
+                {
+                    _dbContext.Add(data);
+                }
+                _dbContext.SaveChanges();
                 return true;
             }
             catch

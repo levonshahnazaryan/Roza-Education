@@ -29,11 +29,9 @@
     <None Include="wwwroot\css\fonts\LineAwesome\line-awesome.woff2" />
     <None Include="wwwroot\js\general.min.js" />
     <None Include="wwwroot\js\libs\dx-quill.min.js" />
-    <None Include="wwwroot\js\libs\dx.all.min.js" />
     <None Include="wwwroot\js\libs\dx.aspnet.data.min.js" />
     <None Include="wwwroot\js\libs\dx.aspnet.mvc.min.js" />
-    <None Include="wwwroot\js\libs\dxdx-quill.min.js" />
-    <None Include="wwwroot\js\libs\dxdx.all.js" />
+    <None Include="wwwroot\js\libs\dx.all.min.js" />
   </ItemGroup>
 
   <ItemGroup>

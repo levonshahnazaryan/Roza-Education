@@ -1,4 +1,4 @@
-function getFormDataObj(form) {
+﻿function getFormDataObj(form) {
     var arr = $(form).serializeArray();
     var obj = {};
     for (var i = 0; i < arr.length; i++) {
@@ -78,7 +78,7 @@ jQuery(document).ready(function () {
                         $(".login_error").text(resp.errorText);
                     }
                     else {
-                        window.location.href = "/Account/Index";
+                        window.location.href = "/Account/AboutUs";
                     }
                 }
             });
@@ -205,5 +205,40 @@ var accountIndexFunctions = {
     setUploadImage: function (e, url) {
         var self = this;
         $(".usefullinksimg").attr("src", url + e.file.name);
+    }
+}
+
+var aboutUsFunctions = {
+    events: function () {
+        var self = this;
+    },
+    updateContent: function (event, form) {
+        var self = this;
+        event.preventDefault();
+        var aboutUsId = $(form).attr("data-aboutusid");
+        var description = $(form).find("#description-content").dxHtmlEditor('instance').option("value");
+
+        var data = {
+            AboutUsId: aboutUsId,
+            UContent: description
+        }
+
+        var token = $("[name=__RequestVerificationToken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/Account/UpdateAboutUsContent',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            headers: { "RequestVerificationToken": token },
+            success: function (resp) {
+                if (resp) {
+                    generalFunctions.dxToastShow(true, "Փոփոխությունը կատարված է");
+                }
+                else {
+                    generalFunctions.dxToastShow(false, "Փոփոխությունը կատարված չէ");
+                }
+            }
+        });
+        return false;
     }
 }

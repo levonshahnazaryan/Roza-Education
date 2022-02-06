@@ -554,6 +554,31 @@ footer .footer_title {
 .usefullinksimg {
   width: 400px;
 }
+.tab-container {
+  padding: 10px;
+}
+.tab-container .input-box {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+.tab-container .input-box span {
+  margin-right: 10px;
+  width: 80px;
+}
+.tab-container .button-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+}
 @media (max-width: 991px) {
   header .header_box {
     padding: 0px 80px;

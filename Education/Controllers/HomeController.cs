@@ -24,7 +24,8 @@ namespace Education.Controllers
         {
             return View("Index", new IndexVM
             {
-                GetUIUsefulLinks = _eduRepository.GetUIUsefulLinks()
+                GetUIUsefulLinks = _eduRepository.GetUIUsefulLinks(),
+                GetAboutUs = _eduRepository.GetAboutUs()
             });
         }
     }
