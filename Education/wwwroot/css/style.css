@@ -548,6 +548,12 @@ footer .footer_title {
 .content .main-content {
   padding: 15px;
 }
+.icon-margin {
+  margin-left: 5px;
+}
+.usefullinksimg {
+  width: 400px;
+}
 @media (max-width: 991px) {
   header .header_box {
     padding: 0px 80px;

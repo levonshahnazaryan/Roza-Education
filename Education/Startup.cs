@@ -31,7 +31,7 @@ namespace Education
                   options.LoginPath = "/Home/Index";
                   options.LogoutPath = "/Home/Index";
                   options.AccessDeniedPath = "/Home/Index";
-                  options.ExpireTimeSpan = new TimeSpan(24, 0, 0);
+                  options.ExpireTimeSpan = new TimeSpan(5, 0, 0);
               });
 
             services.AddCors();

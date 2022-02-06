@@ -2,6 +2,7 @@
 using Domain.Services;
 using Education.Models.Account;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
@@ -10,14 +11,16 @@ using System.Threading.Tasks;
 
 namespace Education.Controllers
 {
-    public class AccountController : Controller
+    public partial class AccountController : Controller
     {
         private IEduRepasitory _eduRepository;
         private readonly AppSettings _appSettings;
-        public AccountController(IEduRepasitory eduRepository, IOptions<AppSettings> appSettings)
+        protected readonly IWebHostEnvironment _webHostEnvironment;
+        public AccountController(IEduRepasitory eduRepository, IOptions<AppSettings> appSettings, IWebHostEnvironment webHostEnvironment)
         {
             _eduRepository = eduRepository;
             _appSettings = appSettings.Value;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -68,6 +71,21 @@ namespace Education.Controllers
         {
             await HttpContext.SignOutAsync("AuthEduAppCookie");
             return RedirectToAction("Index", "Home", null);
+        }
+
+
+
+        [HttpGet]
+        [Route("[controller]/UsefulLinksImage/{usefulLinksId}")]
+        public IActionResult UsefulLinksImage(int usefulLinksId)
+        {
+            var data = _eduRepository.GetUsefulLinks(usefulLinksId);
+            return PartialView("_UsefulLinksImage", new UsefulLinksVM
+            {
+                UsefulLinksId = usefulLinksId,
+                Img = data.Img,
+                RootUrl = $"/Resources/UsefulLinks/{data.UsefulLinksId}/"
+        });
         }
     }
 }

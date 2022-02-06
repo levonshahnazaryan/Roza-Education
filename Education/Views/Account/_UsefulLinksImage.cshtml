@@ -1,0 +1,26 @@
+﻿@using Education.Models.Account
+@model UsefulLinksVM
+
+<div class="clearfix">
+    @(Html.DevExtreme().FileUploader()
+        .SelectButtonText("Բեռնել նկար")
+        .ID("UsefulLinksImage")
+        .Name("UsefulLinksImage")
+        .Multiple(false)
+        .Accept("image/*")
+        .LabelText("")
+        .ShowFileList(false)
+        .UploadMode(FileUploadMode.Instantly)
+        .OnUploaded("function(e){ accountIndexFunctions.setUploadImage(e, '" + Model.RootUrl + "') }")
+        .UploadUrl(Url.Action("UsefulLinksImageUp", "Account", new { usefulLinksId = Model.UsefulLinksId })))
+</div>
+<div class="clearfix">
+    @if (!string.IsNullOrEmpty(Model.Img))
+    {
+        <img class="usefullinksimg" src="@(Model.RootUrl + Model.Img)" />
+    }
+    else
+    {
+        <img class="usefullinksimg" />
+    }
+</div>

@@ -92,3 +92,4 @@ C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.dll
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\ref\Education.dll
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.pdb
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Education.genruntimeconfig.cache
+C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\_UsefulLinksImage.cshtml.g.cs

@@ -3,4 +3,77 @@
     ViewData["Title"] = "Օգտակար հղումներ";
 }
 
-<h1>Hello Levon</h1>
+<section>
+    @(Html.DevExtreme().DataGrid()
+        .ID("UsefulLinks")
+        .Editing(editing =>
+        {
+            editing.RefreshMode(GridEditRefreshMode.Reshape);
+            editing.Mode(GridEditMode.Form);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+            editing.AllowUpdating(true);
+            editing.UseIcons(true);
+        })
+        .OnSelectionChanged("function(e) { accountIndexFunctions.onSelectionChanged(e) }")
+        .OnRowInserted("function(e) { accountIndexFunctions.onRowInserted(e) }")
+        .OnContentReady("function (e) { accountIndexFunctions.onContentReady(e, 'Թարմացնել', 'Կցել նկար') }")
+        .Columns(c =>
+        {
+            c.Add().DataField("UName").DataType(GridColumnDataType.String).Caption("Անվանում");
+            c.Add().DataField("Url").DataType(GridColumnDataType.String).Caption("Հղում");
+            c.Add().DataField("State").DataType(GridColumnDataType.Boolean).Caption("Հասանաելի");
+        })
+        .DataSource(d =>
+            d.WebApi().Controller("Account")
+            .LoadAction("GetUsefulLinks")
+            .InsertAction("PostUsefulLinks")
+            .UpdateAction("PutUsefulLinks")
+            .DeleteAction("DeleteUsefulLinks")
+            .Key("UsefulLinksId")
+        )
+        .LoadPanel(m => m.Text("Բեռնվում է․․․"))
+        .FilterRow(filterRow => filterRow.Visible(true).ApplyFilter(GridApplyFilterMode.Auto))
+        .HeaderFilter(headerFilter => headerFilter.Visible(true))
+        .AllowColumnResizing(true)
+        .ColumnHidingEnabled(true)
+        .ShowBorders(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SearchPanel(searchPanel => searchPanel
+            .Visible(true)
+            .Width(150)
+            .Placeholder("Որոնել․․․")
+        )
+        .Paging(paging => { paging.PageSize(10); })
+        .Pager(pager =>
+        {
+            pager.ShowInfo(true);
+            pager.ShowNavigationButtons(true);
+            pager.ShowPageSizeSelector(true);
+            pager.InfoText("Էջ {0} ({1})");
+        })
+        .RowDragging(rd => rd
+            .ShowDragIcons(true)
+            .AllowReordering(true)
+            .DropFeedbackMode(DropFeedbackMode.Push)
+            .OnReorder("function (e) { accountIndexFunctions.onReorder(e); }")
+    )
+    .OnCellPrepared("generalFunctions.cellPrepared"))
+
+    @(Html.DevExtreme().Popup()
+        .ID("pp_ImageUpload")
+        .ElementAttr("class", "popup")
+        .ShowTitle(true)
+        .Title("Նկարի կցում")
+        .Visible(false)
+        .DragEnabled(false)
+        .ShowCloseButton(true)
+        .Height(400)
+        .Width(600)
+        .ContentTemplate(new TemplateName("tplImageUpload"))
+    )
+    @using (Html.DevExtreme().NamedTemplate("tplImageUpload"))
+    {
+        @(Html.DevExtreme().ScrollView().Content("<div data-partial='UsefulLinksImage'></div>"))
+    }
+</section>
