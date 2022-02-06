@@ -322,6 +322,7 @@ section .categories_box {
 }
 section .categories_box .category_title_box {
   position: relative;
+  margin-bottom: 10px;
 }
 section .categories_box .category_title_box .category_title_first {
   font-size: 40px;
@@ -359,9 +360,8 @@ section .categories_box .category_product_box .category_product {
   margin-bottom: 24px;
 }
 section .categories_box .category_product_box .category_product .category_img {
-  width: 80px;
-  height: 80px;
-  background-image: url(../images/it.png);
+  width: 226px;
+  height: 126px;
   background-repeat: no-repeat;
   background-size: cover;
 }

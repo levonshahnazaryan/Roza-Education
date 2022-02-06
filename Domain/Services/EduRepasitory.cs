@@ -126,5 +126,12 @@ namespace Domain.Services
                 return false;
             }
         }
+
+
+        public IEnumerable<UsefulLinks> GetUIUsefulLinks()
+        {
+            return _dbContext.UsefulLinks.Where(m => m.State).AsEnumerable().ToList();
+        }
+
     }
 }

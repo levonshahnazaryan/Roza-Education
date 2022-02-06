@@ -1,26 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Domain.Helpers;
+using Domain.Services;
+using Education.Models.Home;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace Education.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IEduRepasitory _eduRepository;
+        private readonly AppSettings _appSettings;
+        protected readonly IWebHostEnvironment _webHostEnvironment;
+        public HomeController(IEduRepasitory eduRepository, IOptions<AppSettings> appSettings, IWebHostEnvironment webHostEnvironment)
         {
-            _logger = logger;
+            _eduRepository = eduRepository;
+            _appSettings = appSettings.Value;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [Route("")]
         public IActionResult Index()
         {
-            return View();
+            return View("Index", new IndexVM
+            {
+                GetUIUsefulLinks = _eduRepository.GetUIUsefulLinks()
+            });
         }
     }
 }

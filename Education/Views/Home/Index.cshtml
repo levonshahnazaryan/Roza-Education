@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Education.Models.Home
+@model IndexVM
+
+@{
     ViewData["Title"] = "Գլխավոր էջ";
     Layout = "_Layout";
 }
@@ -14,6 +17,9 @@
             <p class="about_title_first">ՄԵՐ ՄԱՍԻՆ</p>
             <p class="about_title_last">ՄԵՐ ՄԱՍԻՆ</p>
         </div>
+
+
+
         <p class="about_title_text">We provide exclusive Courses</p>
         <p class="about_info">
             We can help you create positive and permanent changes in your life. Let’s Create Something new and awesome Togeather. High Performance WordPress Theme. Let’s Create Something new and awesome Togeather & Best Services. We are the first
@@ -37,7 +43,9 @@
             </div>
             <p>We list your options by state</p>
         </div>
-        <a href="#" class="btn_more">Know More</a>
+
+
+
     </div>
 </div>
 <div class="midl_content"></div>
@@ -48,37 +56,12 @@
     </div>
 
     <div class="category_product_box">
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
-        <a href="#" class="category_product">
-            <div class="category_img"></div>
-            <p>IT & Software</p>
-        </a>
+        @foreach (var item in Model.GetUIUsefulLinks.OrderBy(o => o.Sorting))
+        {
+            <a target="_blank" href="@item.Url" class="category_product">
+                <div class="category_img" style="background-image: url('../Resources/UsefulLinks/@item.UsefulLinksId/@item.Img') "></div>
+                <p>@item.UName</p>
+            </a>
+        }
     </div>
 </div>

@@ -12,5 +12,7 @@ namespace Domain.Services
         bool EditUsefulLinksImgUrl(int usefulLinksId, string imgUrl);
         bool DeleteEntity<TEntity>(params object[] keys) where TEntity : class;
         bool SortUsefulLinks(int key, string values);
+
+        IEnumerable<UsefulLinks> GetUIUsefulLinks();
     }
 }
