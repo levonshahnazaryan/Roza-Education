@@ -1,0 +1,84 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Դասավանդում";
+}
+
+<section>
+    @(Html.DevExtreme().TreeList()
+        .ID("EducationGrid")
+        .Editing(editing =>
+        {
+            editing.Mode(GridEditMode.Row);
+            editing.AllowAdding(true);
+            editing.AllowDeleting(true);
+            editing.AllowUpdating(true);
+            editing.UseIcons(true);
+        })
+        .Columns(columns =>
+        {
+            columns.Add().DataField("ParentId")
+                .Lookup(lookup => lookup
+                    .DataSource(ds => ds.Mvc().Controller("Account").LoadAction("GetEducationParent").Key("EducationsId"))
+                    .DataSourceOptions(dso => dso.Sort(sort => sort.AddSorting("UName")))
+                    .ValueExpr("EducationsId")
+                    .DisplayExpr("UName")
+                    .AllowClearing(true)
+                );
+            columns.Add().DataField("UName").DataType(GridColumnDataType.String).Caption("Վերնագիր");
+            columns.Add().DataField("State").DataType(GridColumnDataType.Boolean).Caption("Հասանաելի");
+        })
+        .DataSource(d =>
+            d.WebApi().Controller("Account")
+            .LoadAction("GetEducation")
+            .InsertAction("PostEducation")
+            .UpdateAction("PutEducation")
+            .DeleteAction("DeleteEducation")
+            .Key("EducationsId")
+        )
+        .KeyExpr("EducationsId")
+        .ParentIdExpr("ParentId")
+        .ShowBorders(true)
+        .AutoExpandAll(false)
+        .ColumnAutoWidth(true)
+        .HoverStateEnabled(true)
+        .AllowColumnResizing(true)
+        .ColumnFixing(fix => fix.Enabled(true))
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .LoadPanel(m => m.Text("Բեռնվում է․․․"))
+        .FilterRow(filterRow => filterRow.Visible(true).ApplyFilter(GridApplyFilterMode.Auto))
+        .SearchPanel(searchPanel => searchPanel
+            .Visible(true)
+            .Width(240)
+            .Placeholder("Որոնել․․․")
+        )
+        .HeaderFilter(headerFilter => headerFilter.Visible(true))
+        .Paging(paging => { paging.PageSize(5); })
+        .Pager(pager =>
+        {
+            pager.ShowInfo(true);
+            pager.ShowNavigationButtons(true);
+            pager.ShowPageSizeSelector(true);
+            pager.InfoText("Էջ {0} ({1})");
+        })
+        .OnCellPrepared("generalFunctions.cellPrepared")
+        .OnSelectionChanged("function(e) { accountEducationFunctions.onSelectionChanged(e) }")
+        .OnContentReady("function (e) { accountEducationFunctions.onContentReady(e, 'Թարմացնել', 'Նկարագրություն') }")
+    )
+
+    @(Html.DevExtreme().Popup()
+        .ID("pp_EduContent")
+        .ElementAttr("class", "popup")
+        .ShowTitle(true)
+        .Title("Նկարագրություն")
+        .Visible(false)
+        .DragEnabled(false)
+        .ShowCloseButton(true)
+        .Height(800)
+        .Width(1300)
+        .ContentTemplate(new TemplateName("tplEduContent"))
+    )
+    @using (Html.DevExtreme().NamedTemplate("tplEduContent"))
+    {
+        @(Html.DevExtreme().ScrollView().Content("<div data-partial='EducationContent'></div>"))
+    }
+</section>

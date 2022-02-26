@@ -29,6 +29,18 @@ namespace Domain.Services
         {
             return _dbContext.AboutCollage.FirstOrDefault();
         }
+        public IEnumerable<Educations> GetEducation()
+        {
+            return _dbContext.Educations.AsEnumerable();
+        }
+        public IEnumerable<Educations> GetEducationParent()
+        {
+            return _dbContext.Educations.Where(m => m.ParentId == 0).AsEnumerable();
+        }
+        public Educations FindEducation(int educationsId)
+        {
+            return _dbContext.Educations.Find(educationsId);
+        }
         public bool AddEntity<TEntity>(TEntity entity) where TEntity : class
         {
             try
@@ -105,6 +117,28 @@ namespace Domain.Services
             try
             {
                 var item = _dbContext.AboutCollage.Where(ro => ro.AboutCollageId == data.AboutCollageId).SingleOrDefault();
+                if (item != null)
+                {
+                    item.UContent = data.UContent;
+                    _dbContext.Update(item);
+                }
+                else
+                {
+                    _dbContext.Add(data);
+                }
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool EditEducationsContent(Educations data)
+        {
+            try
+            {
+                var item = _dbContext.Educations.Where(ro => ro.EducationsId == data.EducationsId).SingleOrDefault();
                 if (item != null)
                 {
                     item.UContent = data.UContent;

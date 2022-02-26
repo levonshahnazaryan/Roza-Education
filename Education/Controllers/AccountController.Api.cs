@@ -4,11 +4,7 @@ using Domain.Entities;
 using Education.Models.Account;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Education.Controllers
 {
@@ -104,6 +100,59 @@ namespace Education.Controllers
                 UContent = data.UContent
             };
             var res = _eduRepository.EditAboutCollageContent(model);
+            return Json(res);
+        }
+
+        [HttpGet]
+        public object GetEducation(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(_eduRepository.GetEducation(), loadOptions);
+        }
+
+        [HttpGet]
+        public object GetEducationParent(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(_eduRepository.GetEducationParent(), loadOptions);
+        }
+
+        [HttpPost]
+        public IActionResult PostEducation(string values)
+        {
+            values = values.Replace("null", "0");
+            Educations how = new();
+            JsonConvert.PopulateObject(values, how);
+            var error = _eduRepository.AddEntity(how);
+            if (!error)
+                return BadRequest();
+            return Ok();
+        }
+
+        [HttpPut]
+        public IActionResult PutEducation(int key, string values)
+        {
+            bool error = _eduRepository.EditEntity<Educations>(values, key);
+            if (!error)
+                return BadRequest();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public void DeleteEducation(int key)
+        {
+            _eduRepository.DeleteEntity<Educations>(key);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [Route("[controller]/UpdateEducationsContent")]
+        public IActionResult UpdateEducationsContent([FromBody] EducationVM data)
+        {
+            var model = new Educations
+            {
+                EducationsId = data.EducationsId,
+                UContent = data.UContent
+            };
+            var res = _eduRepository.EditEducationsContent(model);
             return Json(res);
         }
     }

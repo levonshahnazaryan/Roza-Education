@@ -277,3 +277,75 @@ var aboutCollageFunctions = {
         return false;
     }
 }
+
+
+var accountEducationFunctions = {
+    events: function () {
+        var self = this;
+    },
+    onContentReady: function (e, refresh, desc) {
+        var self = this;
+
+        if ($("#descxBtn").length == 0) {
+            var $customButton1 = $('<div class="icon-margin">').attr("id", "descxBtn").dxButton({
+                hint: desc,
+                icon: 'globe',
+                disabled: true,
+                onClick: function () {
+                    var row = $('#EducationGrid').dxTreeList('instance').getSelectedRowsData(0);
+                    if (row[0].EducationsId) {
+                        generalFunctions.getPartial("/Account/EducationContent", row[0].EducationsId);
+                        $("#pp_EduContent").dxPopup("instance").show();
+                    }
+                }
+            });
+            var toolbar = e.element.find('.dx-toolbar-after');
+            $(toolbar.get(0)).prepend($customButton1);
+        }
+
+        if ($("#refxBtn").length == 0) {
+            var $customButton1 = $('<div class="icon-margin">').attr("id", "refxBtn").dxButton({
+                hint: refresh,
+                icon: 'refresh',
+                onClick: function () {
+                    $("#EducationGrid").dxTreeList("instance").refresh();
+                }
+            });
+            var toolbar = e.element.find('.dx-toolbar-after');
+            $(toolbar.get(0)).prepend($customButton1);
+        }
+    },
+    onSelectionChanged: function (e) {
+        var self = this;
+        $("#descxBtn").dxButton("instance").option("disabled", false);
+    },
+    updateContent: function (event, form) {
+        var self = this;
+        event.preventDefault();
+        var educationsId = $(form).attr("data-educationsid");
+        var description = $(form).find("#description-content").dxHtmlEditor('instance').option("value");
+
+        var data = {
+            EducationsId: educationsId,
+            UContent: description
+        }
+
+        var token = $("[name=__RequestVerificationToken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/Account/UpdateEducationsContent',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            headers: { "RequestVerificationToken": token },
+            success: function (resp) {
+                if (resp) {
+                    generalFunctions.dxToastShow(true, "Փոփոխությունը կատարված է");
+                }
+                else {
+                    generalFunctions.dxToastShow(false, "Փոփոխությունը կատարված չէ");
+                }
+            }
+        });
+        return false;
+    }
+}

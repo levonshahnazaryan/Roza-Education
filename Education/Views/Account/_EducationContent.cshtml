@@ -1,0 +1,66 @@
+﻿@using Education.Models.Account
+@model EducationVM
+
+<form asp-antiforgery="true" autocomplete="off" data-educationsid="@Model.FindEducation.EducationsId" onsubmit="return accountEducationFunctions.updateContent(event, this);">
+    <div class="tab-container">
+        <div class="button-box">
+            @(Html.DevExtreme().Button().Text("Խմբագրել").Icon("save").UseSubmitBehavior(true))
+        </div>
+        <div class="input-box">
+            @(Html.DevExtreme().HtmlEditor()
+                .Content(Model.FindEducation.UContent)
+                .ID("description-content")
+                .Name("description-content")
+                .Height(680)
+                .Toolbar(toolbar => toolbar.Items(
+                items =>
+                {
+                    items.Add().Name(HtmlEditorToolbarItem.Undo);
+                    items.Add().Name(HtmlEditorToolbarItem.Redo);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add()
+                        .Name("size")
+                        .AcceptedValues(new[] { "8pt", "10pt", "12pt", "14pt", "18pt", "24pt", "36pt" });
+                    items.Add()
+                        .Name("font")
+                        .AcceptedValues(new[] { "Arial", "Courier New", "Georgia", "Impact", "Lucida Console", "Tahoma", "Times New Roman", "Verdana" });
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.Bold);
+                    items.Add().Name(HtmlEditorToolbarItem.Italic);
+                    items.Add().Name(HtmlEditorToolbarItem.Strike);
+                    items.Add().Name(HtmlEditorToolbarItem.Underline);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.AlignLeft);
+                    items.Add().Name(HtmlEditorToolbarItem.AlignCenter);
+                    items.Add().Name(HtmlEditorToolbarItem.AlignRight);
+                    items.Add().Name(HtmlEditorToolbarItem.AlignJustify);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.OrderedList);
+                    items.Add().Name(HtmlEditorToolbarItem.BulletList);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add()
+                        .Name("header")
+                        .AcceptedValues(new JS("[false, 1, 2, 3, 4, 5]"));
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.Color);
+                    items.Add().Name(HtmlEditorToolbarItem.Background);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.Link);
+                    items.Add().Name(HtmlEditorToolbarItem.Image);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.Clear);
+                    items.Add().Name(HtmlEditorToolbarItem.CodeBlock);
+                    items.Add().Name(HtmlEditorToolbarItem.Blockquote);
+                    items.Add().Name(HtmlEditorToolbarItem.Separator);
+                    items.Add().Name(HtmlEditorToolbarItem.InsertTable);
+                    items.Add().Name(HtmlEditorToolbarItem.DeleteTable);
+                    items.Add().Name(HtmlEditorToolbarItem.InsertRowAbove);
+                    items.Add().Name(HtmlEditorToolbarItem.InsertRowBelow);
+                    items.Add().Name(HtmlEditorToolbarItem.DeleteRow);
+                    items.Add().Name(HtmlEditorToolbarItem.InsertColumnLeft);
+                    items.Add().Name(HtmlEditorToolbarItem.InsertColumnRight);
+                    items.Add().Name(HtmlEditorToolbarItem.DeleteColumn);
+                })).MediaResizing(m => m.Enabled(true)))
+        </div>
+    </div>
+</form>

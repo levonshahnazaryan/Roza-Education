@@ -95,7 +95,6 @@ namespace Education.Controllers
             });
         }
 
-
         [HttpGet]
         [Route("[controller]/UsefulLinksImage/{usefulLinksId}")]
         public IActionResult UsefulLinksImage(int usefulLinksId)
@@ -106,6 +105,24 @@ namespace Education.Controllers
                 UsefulLinksId = usefulLinksId,
                 Img = data.Img,
                 RootUrl = $"/Resources/UsefulLinks/{data.UsefulLinksId}/"
+            });
+        }
+
+        [HttpGet]
+        [Route("[controller]/Education")]
+        public ViewResult Education()
+        {
+            return View("Education");
+        }
+
+        [HttpGet]
+        [Route("[controller]/EducationContent/{educationsId}")]
+        public IActionResult EducationContent(int educationsId)
+        {
+            var findEducation = _eduRepository.FindEducation(educationsId);
+            return PartialView("_EducationContent", new EducationVM
+            {
+                FindEducation = findEducation
             });
         }
     }
