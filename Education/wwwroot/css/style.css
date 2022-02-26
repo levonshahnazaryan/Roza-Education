@@ -446,6 +446,9 @@ footer .footer_center_box div a {
 footer .footer_center_box div a:hover {
   color: #1ABC9C;
 }
+footer .footer_right_box {
+  width: 255px;
+}
 footer .footer_right_box a {
   display: -webkit-box;
   display: -moz-box;
@@ -464,6 +467,9 @@ footer .footer_right_box a p {
   font-size: 16px;
   color: #fff;
   margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 footer .footer_right_box a:hover p {
   color: #1ABC9C;
@@ -578,6 +584,53 @@ footer .footer_title {
   display: -webkit-flex;
   display: flex;
   justify-content: flex-end;
+}
+.education_box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.education_box .education_left_box {
+  width: 250px;
+  padding-top: 15px;
+}
+.education_box .education_left_box .education_list {
+  color: #1ABC9C;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.education_box .education_left_box .education_list p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.education_box .education_right_box {
+  padding-left: 25px;
+}
+.education_box .education_right_box .education_title_box {
+  position: relative;
+  margin-bottom: 20px;
+}
+.education_box .education_right_box .education_title_box .education_title_first {
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+.education_box .education_right_box .education_title_box .education_title_last {
+  font-size: 18px;
+  color: #1ABC9C;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  left: 21px;
 }
 @media (max-width: 991px) {
   header .header_box {

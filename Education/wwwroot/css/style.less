@@ -496,6 +496,8 @@ footer {
     }
 
     .footer_right_box {
+        width: 255px;
+
         a {
             .flex();
             align-items: center;
@@ -511,6 +513,9 @@ footer {
                 font-size: 16px;
                 color: @white;
                 margin-left: 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             &:hover {
@@ -633,6 +638,53 @@ footer {
     .button-box {
         .flex();
         justify-content: flex-end;
+    }
+}
+
+.education_box {
+    .flex();
+
+    .education_left_box {
+        width: 250px;
+        padding-top: 15px;
+
+        .education_list {
+            color: @green;
+            font-size: 16px;
+            .flex();
+            flex-direction: column;
+            margin-bottom: 15px;
+
+            p {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .education_right_box {
+        padding-left: 25px;
+
+        .education_title_box {
+            position: relative;
+            margin-bottom: 20px;
+
+            .education_title_first {
+                font-size: 40px;
+                font-weight: bold;
+                color: @white;
+            }
+
+            .education_title_last {
+                font-size: 18px;
+                color: @green;
+                font-weight: bold;
+                position: absolute;
+                top: 15px;
+                left: 21px;
+            }
+        }
     }
 }
 

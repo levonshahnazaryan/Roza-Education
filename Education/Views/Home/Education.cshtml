@@ -6,21 +6,25 @@
     Layout = "_Layout";
 }
 
-<table>
-    <tr>
-        <td>
+<div class="about_content">
+    <div class="education_box">
+        <div class="education_left_box">
             @foreach (var item in Model.GetUIEducation.OrderBy(x => x.EducationsId))
             {
-                <div>
-                    <a asp-controller="Home" asp-action="Education" asp-route-educationsid="@item.EducationsId">@item.UName</a>
-                </div>
+                <a asp-controller="Home" asp-action="Education" asp-route-educationsid="@item.EducationsId" style="@(item.ParentId == 0 ? "font-weight: bold;" : "padding-left: 15px;")" class="education_list">
+                    <p>@item.UName</p>
+                </a>
             }
-        </td>
-        <td>
-            <h3>@Model.FindUIEducation.UName</h3>
+        </div>
+        <div class="education_right_box">
+            <div class="education_title_box">
+                <p class="education_title_first">@Model.FindUIEducation.UName</p>
+                <p class="education_title_last">@Model.FindUIEducation.UName</p>
+            </div>
+
             <div>
                 @Html.Raw(Model.FindUIEducation.UContent)
             </div>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
