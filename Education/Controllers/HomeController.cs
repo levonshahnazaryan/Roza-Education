@@ -38,5 +38,15 @@ namespace Education.Controllers
                 GetAboutCollage = _eduRepository.GetAboutCollage()
             });
         }
+
+        [Route("[controller]/Education/{*educationsid}")]
+        public IActionResult Education(int educationsid = 0)
+        {
+            return View("Education", new EducationsVM
+            {
+                GetUIEducation = _eduRepository.GetUIEducation(),
+                FindUIEducation = _eduRepository.FindUIEducation(educationsid)
+            });
+        }
     }
 }

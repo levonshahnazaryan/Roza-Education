@@ -1,0 +1,26 @@
+﻿@using Education.Models.Home
+@model EducationsVM
+
+@{
+    ViewData["Title"] = "Դասավանդում";
+    Layout = "_Layout";
+}
+
+<table>
+    <tr>
+        <td>
+            @foreach (var item in Model.GetUIEducation.OrderBy(x => x.EducationsId))
+            {
+                <div>
+                    <a asp-controller="Home" asp-action="Education" asp-route-educationsid="@item.EducationsId">@item.UName</a>
+                </div>
+            }
+        </td>
+        <td>
+            <h3>@Model.FindUIEducation.UName</h3>
+            <div>
+                @Html.Raw(Model.FindUIEducation.UContent)
+            </div>
+        </td>
+    </tr>
+</table>

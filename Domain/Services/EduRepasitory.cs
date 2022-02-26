@@ -218,6 +218,23 @@ namespace Domain.Services
         {
             return _dbContext.UsefulLinks.Where(m => m.State).AsEnumerable().ToList();
         }
-
+        public IEnumerable<Educations> GetUIEducation()
+        {
+            return _dbContext.Educations.Where(m => m.State).AsEnumerable();
+        }
+        public Educations FindUIEducation(int educationsId)
+        {
+            if (educationsId == 0)
+            {
+                var data = _dbContext.Educations.OrderBy(x => x.EducationsId).FirstOrDefault();
+                if (data != null)
+                    educationsId = data.EducationsId;
+            }
+            return _dbContext.Educations.Find(educationsId);
+        }
+        public IEnumerable<Educations> GetUIBestEducation()
+        {
+            return _dbContext.Educations.Where(m => m.IsBest).Take(4).OrderBy(x => x.EducationsId).AsEnumerable();
+        }
     }
 }

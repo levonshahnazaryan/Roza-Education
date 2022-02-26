@@ -20,6 +20,10 @@ namespace Domain.Entities
         [JsonProperty("State")]
         public bool State { get; set; }
 
+        [Column("IsBest")]
+        [JsonProperty("IsBest")]
+        public bool IsBest { get; set; }
+
         [Column("UName")]
         [JsonProperty("UName")]
         public string UName { get; set; }

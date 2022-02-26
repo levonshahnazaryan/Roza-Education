@@ -26,6 +26,7 @@
                 );
             columns.Add().DataField("UName").DataType(GridColumnDataType.String).Caption("Վերնագիր");
             columns.Add().DataField("State").DataType(GridColumnDataType.Boolean).Caption("Հասանաելի");
+            columns.Add().DataField("IsBest").DataType(GridColumnDataType.Boolean).Caption("Լավագույն դասընթաց");
         })
         .DataSource(d =>
             d.WebApi().Controller("Account")

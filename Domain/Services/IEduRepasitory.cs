@@ -22,5 +22,8 @@ namespace Domain.Services
         bool SortUsefulLinks(int key, string values);
 
         IEnumerable<UsefulLinks> GetUIUsefulLinks();
+        IEnumerable<Educations> GetUIEducation();
+        Educations FindUIEducation(int educationsId);
+        IEnumerable<Educations> GetUIBestEducation();
     }
 }

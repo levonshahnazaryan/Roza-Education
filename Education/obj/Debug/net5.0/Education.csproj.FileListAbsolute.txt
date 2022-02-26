@@ -98,3 +98,5 @@ C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\About
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Home\AboutCollage.cshtml.g.cs
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\Education.cshtml.g.cs
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\_EducationContent.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Home\Education.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Shared\Components\BestEducations\Default.cshtml.g.cs
