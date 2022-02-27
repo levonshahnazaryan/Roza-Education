@@ -16,8 +16,9 @@
             </a>
             <div class="right_box">
                 <a href="/" class="@(ViewBag.PageName == "home_index" ? "activeMenu" : null)">Գլխավոր էջ</a>
-                <a asp-controller="Home" asp-action="Education" class="@(ViewBag.PageName == "home_education" ? "activeMenu" : null)")>Դասավանդում</a>
+                <a asp-controller="Home" asp-action="Education" class="@(ViewBag.PageName == "home_education" ? "activeMenu" : null)" )>Դասավանդում</a>
                 <a asp-controller="Home" asp-action="AboutCollage" class="@(ViewBag.PageName == "home_aboutcollage" ? "activeMenu" : null)">Քոլեջի մասին</a>
+                <a asp-controller="Home" asp-action="Feedback" class="@(ViewBag.PageName == "home_feedback" ? "activeMenu" : null)">Հետադարձ կապ</a>
                 <div class="headerLine"></div>
 
                 @if (User.Identity.IsAuthenticated)
@@ -98,6 +99,7 @@
                 <a href="/">Գլխավոր էջ</a>
                 <a asp-controller="Home" asp-action="Education">Դասավանդում</a>
                 <a asp-controller="Home" asp-action="AboutCollage">Քոլեջի մասին</a>
+                <a asp-controller="Home" asp-action="Feedback">Հետադարձ կապ</a>
             </div>
         </div>
         @await Component.InvokeAsync("BestEducations")

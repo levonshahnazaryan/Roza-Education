@@ -24,6 +24,10 @@ namespace Domain.Entities
         [JsonProperty("UName")]
         public string UName { get; set; }
 
+        [Column("Description")]
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+
         [Column("State")]
         [JsonProperty("State")]
         public bool State { get; set; }

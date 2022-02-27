@@ -349,3 +349,32 @@ var accountEducationFunctions = {
         return false;
     }
 }
+
+var homeFeedbackFunctions = {
+    events: function () {
+        var self = this;
+    },
+    sendFeedback: function (event, form) {
+        var self = this;
+        event.preventDefault();
+
+        const data = getFormDataObj(form);
+        var token = $("[name=__RequestVerificationToken]").val();
+        $.ajax({
+            type: 'POST',
+            url: '/Home/SendFeedback',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            headers: { "RequestVerificationToken": token },
+            success: function (resp) {
+                if (resp) {
+                    window.location.href = "/";
+                }
+                else {
+                    alert("Կրկին փորձեք");
+                }
+            }
+        });
+        return false;
+    }
+}

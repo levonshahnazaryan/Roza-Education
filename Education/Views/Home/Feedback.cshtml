@@ -1,0 +1,24 @@
+﻿@using Education.Models.Home
+@model FeedbackVM
+
+@{
+    ViewData["Title"] = "Հետադարձ կապ";
+    Layout = "_Layout";
+}
+
+<div class="about_content">
+    <div class="about_right_box">
+        <div class="about_title_box">
+            <p class="about_title_first">ՀԵՏԱԴԱՐՁ ԿԱՊ</p>
+            <p class="about_title_last">ՀԵՏԱԴԱՐՁ ԿԱՊ</p>
+        </div>
+        <div>
+            <form asp-antiforgery="true" autocomplete="off" onsubmit="return homeFeedbackFunctions.sendFeedback(event, this);">
+                <input type="text" asp-for="FullName" placeholder="Անուն Ազգանուն" /><br />
+                <input type="email" asp-for="Email" placeholder="Էլ․ հասցե" /><br />
+                <textarea asp-for="Content"></textarea><br />
+                <button type="submit">Ուղարկել</button>
+            </form>
+        </div>
+    </div>
+</div>

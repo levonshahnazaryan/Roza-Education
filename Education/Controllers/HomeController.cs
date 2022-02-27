@@ -5,6 +5,8 @@ using Education.Models.Home;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Net;
+using System.Net.Mail;
 
 namespace Education.Controllers
 {
@@ -47,6 +49,48 @@ namespace Education.Controllers
                 GetUIEducation = _eduRepository.GetUIEducation(),
                 FindUIEducation = _eduRepository.FindUIEducation(educationsid)
             });
+        }
+
+        [Route("[controller]/Feedback")]
+        public IActionResult Feedback()
+        {
+            return View("Feedback");
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [Route("[controller]/SendFeedback")]
+        public IActionResult SendFeedback([FromBody] FeedbackVM data)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(data.FullName) && !string.IsNullOrEmpty(data.Email) && !string.IsNullOrEmpty(data.Content))
+                {
+                    SmtpClient smtpClient = new(_appSettings.EmailSettings.Host, _appSettings.EmailSettings.Port)
+                    {
+                        UseDefaultCredentials = false,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        EnableSsl = _appSettings.EmailSettings.EnableSsl,
+                        Credentials = new NetworkCredential(_appSettings.EmailSettings.UserName, _appSettings.EmailSettings.PassWord)
+                    };
+                    MailMessage mail = new()
+                    {
+                        IsBodyHtml = true,
+                        DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess | DeliveryNotificationOptions.OnFailure,
+                        Subject = "Հետադարձ կապ",
+                        Body = "<p>Անուն Ազգանուն՝ " + data.FullName + "</p><p>Էլ․ հասցե՝ " + data.Email + "</p><p>Հաղորդագրություն՝ " + data.Content + "</p>",
+                        From = new MailAddress(_appSettings.EmailSettings.UserName)
+                    };
+                    mail.To.Add(new MailAddress(_appSettings.EmailSettings.GetEmail));
+                    smtpClient.SendMailAsync(mail);
+                    return Json(true);
+                }
+                return Json(false);
+            }
+            catch
+            {
+                return Json(false);
+            }
         }
     }
 }
