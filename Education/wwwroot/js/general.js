@@ -371,7 +371,7 @@ var homeFeedbackFunctions = {
                     window.location.href = "/";
                 }
                 else {
-                    alert("Կրկին փորձեք");
+                    $('.feadback_box').addClass('errore_style')
                 }
             }
         });
