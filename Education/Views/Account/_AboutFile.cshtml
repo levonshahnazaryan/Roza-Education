@@ -1,0 +1,55 @@
+﻿@using Education.Models.Account
+@model EducationVM
+
+<div class="clearfix">
+    @(Html.DevExtreme().FileUploader()
+        .SelectButtonText("Ներբեռնել")
+        .ID("AboutUpFiles")
+        .Name("AboutUpFiles")
+        .Multiple(false)
+        //.Accept("image/*")
+        .LabelText("")
+        .ShowFileList(false)
+        .UploadMode(FileUploadMode.Instantly)
+        .OnUploaded("function(e){ aboutCollageFunctions.uploadFile(e) }")
+        .UploadUrl(Url.Action("UploadAboutFile", "Account")))
+</div>
+
+<section>
+    @(Html.DevExtreme().DataGrid()
+        .ID("AboutFile")
+        .Editing(editing =>
+        {
+            editing.RefreshMode(GridEditRefreshMode.Reshape);
+            editing.AllowAdding(false);
+            editing.AllowDeleting(true);
+            editing.AllowUpdating(false);
+            editing.UseIcons(true);
+        })
+        .Columns(c =>
+        {
+            c.Add().DataField("FileName").DataType(GridColumnDataType.String).Caption("Անվանում");
+        })
+        .DataSource(d =>
+            d.WebApi().Controller("Account")
+            .LoadAction("GetAboutFile")
+            .DeleteAction("DeleteAboutFile")
+            .Key("AboutFilesId")
+        )
+        .LoadPanel(m => m.Text("Բեռնվում է․․․"))
+        .FilterRow(filterRow => filterRow.Visible(true).ApplyFilter(GridApplyFilterMode.Auto))
+        .HeaderFilter(headerFilter => headerFilter.Visible(true))
+        .AllowColumnResizing(true)
+        .ColumnHidingEnabled(true)
+        .ShowBorders(true)
+        .Paging(paging => { paging.PageSize(10); })
+        .Pager(pager =>
+        {
+            pager.ShowInfo(true);
+            pager.ShowNavigationButtons(true);
+            pager.ShowPageSizeSelector(true);
+            pager.InfoText("Էջ {0} ({1})");
+        }
+    )
+    .OnCellPrepared("generalFunctions.cellPrepared"))
+</section>

@@ -38,7 +38,8 @@ namespace Education.Controllers
         {
             return View("AboutCollage", new AboutCollageVM
             {
-                GetAboutCollage = _eduRepository.GetAboutCollage()
+                GetAboutCollage = _eduRepository.GetAboutCollage(),
+                GetAboutFiles = _eduRepository.GetAboutFiles()
             });
         }
 
@@ -48,7 +49,8 @@ namespace Education.Controllers
             return View("Education", new EducationsVM
             {
                 GetUIEducation = _eduRepository.GetUIEducation(),
-                FindUIEducation = _eduRepository.FindUIEducation(educationsid)
+                FindUIEducation = _eduRepository.FindUIEducation(educationsid),
+                GetEducationsFile = _eduRepository.GetUIEducationsFile(educationsid)
             });
         }
 

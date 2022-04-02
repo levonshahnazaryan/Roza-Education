@@ -614,6 +614,22 @@ footer .footer_title {
   display: flex;
   justify-content: flex-end;
 }
+.tab-container .button-box-start {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-start;
+}
+.tab-container .button-box-end {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+}
 .education_box {
   display: -webkit-box;
   display: -moz-box;
@@ -751,4 +767,32 @@ footer .footer_title {
 .feadback_content .about_right_box .feadback_box.errore_style textarea,
 .feadback_content .about_right_box .feadback_box.errore_style input {
   border: 1px solid red !important;
+}
+.file_content {
+  padding: 0px 112px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-bottom: 50px;
+  background-color: #F7F8FA;
+}
+.file_content .file_box {
+  margin-right: 10px;
+}
+.file_content .file_box a {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  background-color: #1ABC9C;
+}
+.file_content_education {
+  padding: 0px;
+  padding-top: 15px;
+}
+.feadback_content .about_right_box .feadback_box form input.not-requerides {
+  border: 1px solid transparent !important;
 }

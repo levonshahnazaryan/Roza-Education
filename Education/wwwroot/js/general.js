@@ -275,9 +275,17 @@ var aboutCollageFunctions = {
             }
         });
         return false;
+    },
+    openAboutFiles: function (e) {
+        var self = this;
+        generalFunctions.getPartial("/Account/AboutFile", "");
+        $("#pp_AboutFiles").dxPopup("instance").show();
+    },
+    uploadFile: function (e) {
+        var self = this;
+        $("#AboutFile").dxDataGrid("instance").refresh();
     }
 }
-
 
 var accountEducationFunctions = {
     events: function () {
@@ -401,6 +409,7 @@ var homeFeedbackFunctions = {
                 }
                 else {
                     $('.feadback_box').addClass('errore_style')
+                    $('.feadback_box').find('input[type="file"]').addClass('not-requerides')
                 }
             }
         });

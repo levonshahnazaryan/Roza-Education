@@ -15,3 +15,11 @@
         @Html.Raw(Model.GetAboutCollage.UContent)
     </div>
 </div>
+<div class="file_content">
+    @foreach (var item in Model.GetAboutFiles)
+    {
+        <div class="file_box">
+            <a href="~/Resources/AboutFiles/@item.FileName" download>@item.FileName</a>
+        </div>
+    }
+</div>

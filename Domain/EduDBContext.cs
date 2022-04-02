@@ -21,6 +21,7 @@ namespace Domain
         public DbSet<UsefulLinks> UsefulLinks { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<AboutCollage> AboutCollage { get; set; }
+        public DbSet<AboutFiles> AboutFiles { get; set; }
         public DbSet<Educations> Educations { get; set; }
         public DbSet<EducationsFile> EducationsFile { get; set; }
         #endregion

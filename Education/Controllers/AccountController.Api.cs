@@ -192,5 +192,38 @@ namespace Education.Controllers
             }
             return new EmptyResult();
         }
+
+        [HttpGet]
+        public object GetAboutFile(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(_eduRepository.GetAboutFiles(), loadOptions);
+        }
+
+        [HttpDelete]
+        public void DeleteAboutFile(int key)
+        {
+            _eduRepository.DeleteEntity<AboutFiles>(key);
+        }
+
+        [HttpPost]
+        [Route("[controller]/UploadAboutFile")]
+        public ActionResult UploadAboutFile()
+        {
+            var myFile = Request.Form.Files["AboutUpFiles"];
+            var cont = $"{_webHostEnvironment.WebRootPath}/Resources/AboutFiles";
+            if (!Directory.Exists(cont))
+                Directory.CreateDirectory(cont);
+            var path = $"{_webHostEnvironment.WebRootPath}/Resources/AboutFiles/" + myFile.FileName;
+            using (var fileStream = System.IO.File.Create(path))
+            {
+                myFile.CopyTo(fileStream);
+                AboutFiles file = new()
+                {
+                    FileName = myFile.FileName
+                };
+                _eduRepository.AddEntity(file);
+            }
+            return new EmptyResult();
+        }
     }
 }

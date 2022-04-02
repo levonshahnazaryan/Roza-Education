@@ -6,11 +6,22 @@
     ViewData["Title"] = "Գրադարան";
 }
 
- @**@
 <form asp-antiforgery="true" autocomplete="off" data-aboutcollageid="@Model.GetAboutCollage.AboutCollageId" onsubmit="return aboutCollageFunctions.updateContent(event, this);">
     <div class="tab-container">
-        <div class="button-box">
-            @(Html.DevExtreme().Button().Text("Խմբագրել").Icon("save").UseSubmitBehavior(true))
+        <div class="button-box-start">
+            @(Html.DevExtreme()
+                .Button()
+                .Text("Կից Ֆայլեր")
+                .Icon("folder")
+                .UseSubmitBehavior(false)
+                .OnClick("function(e) { aboutCollageFunctions.openAboutFiles(e) }"))
+        </div>
+        <div class="button-box-end">
+            @(Html.DevExtreme()
+                .Button()
+                .Text("Խմբագրել")
+                .Icon("save")
+                .UseSubmitBehavior(true))
         </div>
         <div class="input-box">
             @(Html.DevExtreme().HtmlEditor()
@@ -70,3 +81,19 @@
         </div>
     </div>
 </form>
+@(Html.DevExtreme().Popup()
+        .ID("pp_AboutFiles")
+        .ElementAttr("class", "popup")
+        .ShowTitle(true)
+        .Title("Կից ֆայլեր")
+        .Visible(false)
+        .DragEnabled(false)
+        .ShowCloseButton(true)
+        .Height(600)
+        .Width(500)
+        .ContentTemplate(new TemplateName("tplAboutFiles"))
+    )
+@using (Html.DevExtreme().NamedTemplate("tplAboutFiles"))
+{
+    @(Html.DevExtreme().ScrollView().Content("<div data-partial='AboutFile'></div>"))
+}

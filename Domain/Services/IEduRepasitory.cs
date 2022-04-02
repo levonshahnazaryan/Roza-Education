@@ -9,6 +9,7 @@ namespace Domain.Services
         UsefulLinks GetUsefulLinks(int usefulLinksId);
         AboutUs GetAboutUs();
         AboutCollage GetAboutCollage();
+        IEnumerable<AboutFiles> GetAboutFiles();
         IEnumerable<Educations> GetEducation();
         IEnumerable<Educations> GetEducationParent();
         Educations FindEducation(int educationsId);
@@ -24,6 +25,7 @@ namespace Domain.Services
         IEnumerable<UsefulLinks> GetUIUsefulLinks();
         IEnumerable<Educations> GetUIEducation();
         Educations FindUIEducation(int educationsId);
+        IEnumerable<EducationsFile> GetUIEducationsFile(int educationsId);
         IEnumerable<Educations> GetUIBestEducation();
     }
 }

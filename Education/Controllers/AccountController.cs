@@ -135,5 +135,12 @@ namespace Education.Controllers
                 EducationsId = educationsId
             });
         }
+
+        [HttpGet]
+        [Route("[controller]/AboutFile")]
+        public IActionResult AboutFile()
+        {
+            return PartialView("_AboutFile");
+        }
     }
 }

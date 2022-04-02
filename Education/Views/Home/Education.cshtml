@@ -21,9 +21,16 @@
                 <p class="education_title_first">@Model.FindUIEducation.UName</p>
                 <p class="education_title_last">@Model.FindUIEducation.UName</p>
             </div>
-
             <div>
                 @Html.Raw(Model.FindUIEducation.UContent)
+                <div class="file_content file_content_education">
+                    @foreach (var item in Model.GetEducationsFile)
+                    {
+                        <div class="file_box">
+                            <a href="~/Resources/Education/@item.EducationsId/@item.FileName" download>@item.FileName</a>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>

@@ -30,6 +30,10 @@ namespace Domain.Services
         {
             return _dbContext.AboutCollage.FirstOrDefault();
         }
+        public IEnumerable<AboutFiles> GetAboutFiles()
+        {
+            return _dbContext.AboutFiles.AsEnumerable();
+        }
         public IEnumerable<Educations> GetEducation()
         {
             return _dbContext.Educations.AsEnumerable();
@@ -234,6 +238,16 @@ namespace Domain.Services
                     educationsId = data.EducationsId;
             }
             return _dbContext.Educations.Find(educationsId);
+        }
+        public IEnumerable<EducationsFile> GetUIEducationsFile(int educationsId)
+        {
+            if (educationsId == 0)
+            {
+                var data = _dbContext.Educations.OrderBy(x => x.EducationsId).FirstOrDefault();
+                if (data != null)
+                    educationsId = data.EducationsId;
+            }
+            return _dbContext.EducationsFile.Where(m => m.EducationsId == educationsId).AsEnumerable();
         }
         public IEnumerable<Educations> GetUIBestEducation()
         {
