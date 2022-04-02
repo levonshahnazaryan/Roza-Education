@@ -125,5 +125,15 @@ namespace Education.Controllers
                 FindEducation = findEducation
             });
         }
+
+        [HttpGet]
+        [Route("[controller]/EducationFile/{educationsId}")]
+        public IActionResult EducationFile(int educationsId)
+        {
+            return PartialView("_EducationFile", new EducationVM
+            {
+                EducationsId = educationsId
+            });
+        }
     }
 }

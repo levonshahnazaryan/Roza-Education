@@ -12,6 +12,7 @@ namespace Domain.Services
         IEnumerable<Educations> GetEducation();
         IEnumerable<Educations> GetEducationParent();
         Educations FindEducation(int educationsId);
+        IEnumerable<EducationsFile> GetEducationsFile(int educationsId);
         bool AddEntity<TEntity>(TEntity entity) where TEntity : class;
         bool EditEntity<TEntity>(string values, params object[] keys) where TEntity : class;
         bool EditUsefulLinksImgUrl(int usefulLinksId, string imgUrl);
@@ -24,10 +25,5 @@ namespace Domain.Services
         IEnumerable<Educations> GetUIEducation();
         Educations FindUIEducation(int educationsId);
         IEnumerable<Educations> GetUIBestEducation();
-
-        public int GetInt()
-        {
-            return 12;
-        }
     }
 }

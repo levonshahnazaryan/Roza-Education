@@ -22,6 +22,7 @@ namespace Domain
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<AboutCollage> AboutCollage { get; set; }
         public DbSet<Educations> Educations { get; set; }
+        public DbSet<EducationsFile> EducationsFile { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

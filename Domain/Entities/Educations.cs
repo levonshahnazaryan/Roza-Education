@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -31,5 +32,7 @@ namespace Domain.Entities
         [Column("UContent")]
         [JsonProperty("UContent")]
         public string UContent { get; set; }
+
+        public virtual List<EducationsFile> EducationsFile { get; set; }
     }
 }

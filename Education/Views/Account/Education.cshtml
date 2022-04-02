@@ -63,7 +63,7 @@
         })
         .OnCellPrepared("generalFunctions.cellPrepared")
         .OnSelectionChanged("function(e) { accountEducationFunctions.onSelectionChanged(e) }")
-        .OnContentReady("function (e) { accountEducationFunctions.onContentReady(e, 'Թարմացնել', 'Նկարագրություն') }")
+        .OnContentReady("function (e) { accountEducationFunctions.onContentReady(e, 'Թարմացնել', 'Նկարագրություն', 'Կից ֆայլեր') }")
     )
 
     @(Html.DevExtreme().Popup()
@@ -81,5 +81,22 @@
     @using (Html.DevExtreme().NamedTemplate("tplEduContent"))
     {
         @(Html.DevExtreme().ScrollView().Content("<div data-partial='EducationContent'></div>"))
+    }
+
+    @(Html.DevExtreme().Popup()
+        .ID("pp_EduFiles")
+        .ElementAttr("class", "popup")
+        .ShowTitle(true)
+        .Title("Կից ֆայլեր")
+        .Visible(false)
+        .DragEnabled(false)
+        .ShowCloseButton(true)
+        .Height(600)
+        .Width(500)
+        .ContentTemplate(new TemplateName("tplEduFiles"))
+    )
+    @using (Html.DevExtreme().NamedTemplate("tplEduFiles"))
+    {
+        @(Html.DevExtreme().ScrollView().Content("<div data-partial='EducationFile'></div>"))
     }
 </section>

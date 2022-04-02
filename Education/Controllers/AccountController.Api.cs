@@ -155,5 +155,42 @@ namespace Education.Controllers
             var res = _eduRepository.EditEducationsContent(model);
             return Json(res);
         }
+
+        [HttpGet]
+        public object GetEducationsFile(int educationsId, DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(_eduRepository.GetEducationsFile(educationsId), loadOptions);
+        }
+
+        [HttpDelete]
+        public void DeleteEducationsFile(int key)
+        {
+            _eduRepository.DeleteEntity<EducationsFile>(key);
+        }
+
+        [HttpPost]
+        [Route("[controller]/UploadEducationFile/{educationsId}")]
+        public ActionResult UploadEducationFile(int educationsId)
+        {
+            var myFile = Request.Form.Files["EduUpFiles"];
+            var cont = $"{_webHostEnvironment.WebRootPath}/Resources/Education";
+            if (!Directory.Exists(cont))
+                Directory.CreateDirectory(cont);
+            var idCont = $"{_webHostEnvironment.WebRootPath}/Resources/Education/" + educationsId;
+            if (!Directory.Exists(idCont))
+                Directory.CreateDirectory(idCont);
+            var path = $"{_webHostEnvironment.WebRootPath}/Resources/Education/" + educationsId + "/" + myFile.FileName;
+            using (var fileStream = System.IO.File.Create(path))
+            {
+                myFile.CopyTo(fileStream);
+                EducationsFile file = new()
+                {
+                    EducationsId = educationsId,
+                    FileName = myFile.FileName
+                };
+                _eduRepository.AddEntity(file);
+            }
+            return new EmptyResult();
+        }
     }
 }

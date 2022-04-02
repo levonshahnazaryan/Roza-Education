@@ -15,16 +15,16 @@
         <div class="feadback_box">
             <form asp-antiforgery="true" autocomplete="off" enctype="multipart/form-data" onsubmit="return homeFeedbackFunctions.sendFeedback(event, this);">
                 <div class="input_wrp">
-                    <input type="text" asp-for="FullName" autocomplete="off" placeholder="Անուն Ազգանուն" autocapitalize="false" value="AAAA AAAAAAAAA" />
+                    <input type="text" asp-for="FullName" autocomplete="off" placeholder="Անուն Ազգանուն" autocapitalize="false" />
                 </div>
                 <div class="input_wrp">
-                    <input type="email" asp-for="Email" autocomplete="off" placeholder="Էլ․ հասցե" value="hfgkdsjfgs@gfhjhgajf.cog"/>
+                    <input type="email" asp-for="Email" autocomplete="off" placeholder="Էլ․ հասցե"/>
                 </div>
                 <div class="input_wrp">
                     <input type="file" asp-for="IFile" multiple />
                 </div>
                 <div class="textarea_wrap">
-                    <textarea asp-for="Content" placeholder="Գրեք մեզ">aaaaa</textarea><br />
+                    <textarea asp-for="Content" placeholder="Գրեք մեզ"></textarea><br />
                 </div>
                 <button type="submit" class="feadbackBtn">Ուղարկել</button>
             </form>

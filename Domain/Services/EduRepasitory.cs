@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,6 +41,10 @@ namespace Domain.Services
         public Educations FindEducation(int educationsId)
         {
             return _dbContext.Educations.Find(educationsId);
+        }
+        public IEnumerable<EducationsFile> GetEducationsFile(int educationsId)
+        {
+            return _dbContext.EducationsFile.Where(m => m.EducationsId == educationsId).AsEnumerable();
         }
         public bool AddEntity<TEntity>(TEntity entity) where TEntity : class
         {

@@ -37,7 +37,7 @@ namespace Education
             services.AddCors();
             services.AddControllersWithViews();
             services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            services.AddSingleton<IEduRepasitory, EduRepasitory>();
+            services.AddScoped<IEduRepasitory, EduRepasitory>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
