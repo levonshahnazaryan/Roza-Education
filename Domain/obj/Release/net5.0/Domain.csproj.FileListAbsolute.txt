@@ -1,0 +1,12 @@
+C:\Education\Roza-Education\Domain\bin\Release\net5.0\Domain.deps.json
+C:\Education\Roza-Education\Domain\bin\Release\net5.0\Domain.dll
+C:\Education\Roza-Education\Domain\bin\Release\net5.0\ref\Domain.dll
+C:\Education\Roza-Education\Domain\bin\Release\net5.0\Domain.pdb
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.csproj.AssemblyReference.cache
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.AssemblyInfo.cs
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.dll
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\ref\Domain.dll
+C:\Education\Roza-Education\Domain\obj\Release\net5.0\Domain.pdb

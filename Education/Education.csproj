@@ -40,11 +40,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <Folder Include="wwwroot\Resources\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Resources\" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

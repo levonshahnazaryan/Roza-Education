@@ -358,13 +358,20 @@ var homeFeedbackFunctions = {
         var self = this;
         event.preventDefault();
 
-        const data = getFormDataObj(form);
+        var formData = new FormData();
+        formData.append("fullName", $("#FullName").val());
+        formData.append("email", $("#Email").val());
+        formData.append("iFile", $("#IFile")[0].files[0]);
+        formData.append("content", $("#Content").val());
+
         var token = $("[name=__RequestVerificationToken]").val();
         $.ajax({
             type: 'POST',
             url: '/Home/SendFeedback',
-            data: JSON.stringify(data),
-            contentType: 'application/json',
+            data: formData,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
             headers: { "RequestVerificationToken": token },
             success: function (resp) {
                 if (resp) {

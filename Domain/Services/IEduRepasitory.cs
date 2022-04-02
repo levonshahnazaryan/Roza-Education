@@ -20,10 +20,14 @@ namespace Domain.Services
         bool EditEducationsContent(Educations data);
         bool DeleteEntity<TEntity>(params object[] keys) where TEntity : class;
         bool SortUsefulLinks(int key, string values);
-
         IEnumerable<UsefulLinks> GetUIUsefulLinks();
         IEnumerable<Educations> GetUIEducation();
         Educations FindUIEducation(int educationsId);
         IEnumerable<Educations> GetUIBestEducation();
+
+        public int GetInt()
+        {
+            return 12;
+        }
     }
 }

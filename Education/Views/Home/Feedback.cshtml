@@ -13,17 +13,20 @@
             <p class="about_title_last">ՀԵՏԱԴԱՐՁ ԿԱՊ</p>
         </div>
         <div class="feadback_box">
-            <form asp-antiforgery="true" autocomplete="off" onsubmit="return homeFeedbackFunctions.sendFeedback(event, this);">
+            <form asp-antiforgery="true" autocomplete="off" enctype="multipart/form-data" onsubmit="return homeFeedbackFunctions.sendFeedback(event, this);">
                 <div class="input_wrp">
-                    <input type="text" asp-for="FullName"  autocomplete="off" placeholder="Անուն Ազգանուն" autocapitalize="false" />
+                    <input type="text" asp-for="FullName" autocomplete="off" placeholder="Անուն Ազգանուն" autocapitalize="false" value="AAAA AAAAAAAAA" />
                 </div>
                 <div class="input_wrp">
-                    <input type="email" asp-for="Email" autocomplete="off" placeholder="Էլ․ հասցե" />
+                    <input type="email" asp-for="Email" autocomplete="off" placeholder="Էլ․ հասցե" value="hfgkdsjfgs@gfhjhgajf.cog"/>
+                </div>
+                <div class="input_wrp">
+                    <input type="file" asp-for="IFile" multiple />
                 </div>
                 <div class="textarea_wrap">
-                    <textarea asp-for="Content" placeholder="Գրեք մեզ"></textarea><br />
+                    <textarea asp-for="Content" placeholder="Գրեք մեզ">aaaaa</textarea><br />
                 </div>
-                <button  type="submit" class="feadbackBtn">Ուղարկել</button>
+                <button type="submit" class="feadbackBtn">Ուղարկել</button>
             </form>
         </div>
     </div>
