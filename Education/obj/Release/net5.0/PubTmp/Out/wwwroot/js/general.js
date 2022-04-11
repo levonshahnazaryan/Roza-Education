@@ -275,16 +275,41 @@ var aboutCollageFunctions = {
             }
         });
         return false;
+    },
+    openAboutFiles: function (e) {
+        var self = this;
+        generalFunctions.getPartial("/Account/AboutFile", "");
+        $("#pp_AboutFiles").dxPopup("instance").show();
+    },
+    uploadFile: function (e) {
+        var self = this;
+        $("#AboutFile").dxDataGrid("instance").refresh();
     }
 }
-
 
 var accountEducationFunctions = {
     events: function () {
         var self = this;
     },
-    onContentReady: function (e, refresh, desc) {
+    onContentReady: function (e, refresh, desc, files) {
         var self = this;
+
+        if ($("#filexBtn").length == 0) {
+            var $customButton1 = $('<div class="icon-margin">').attr("id", "filexBtn").dxButton({
+                hint: files,
+                icon: 'folder',
+                disabled: true,
+                onClick: function () {
+                    var row = $('#EducationGrid').dxTreeList('instance').getSelectedRowsData(0);
+                    if (row[0].EducationsId) {
+                        generalFunctions.getPartial("/Account/EducationFile", row[0].EducationsId);
+                        $("#pp_EduFiles").dxPopup("instance").show();
+                    }
+                }
+            });
+            var toolbar = e.element.find('.dx-toolbar-after');
+            $(toolbar.get(0)).prepend($customButton1);
+        }
 
         if ($("#descxBtn").length == 0) {
             var $customButton1 = $('<div class="icon-margin">').attr("id", "descxBtn").dxButton({
@@ -318,6 +343,7 @@ var accountEducationFunctions = {
     onSelectionChanged: function (e) {
         var self = this;
         $("#descxBtn").dxButton("instance").option("disabled", false);
+        $("#filexBtn").dxButton("instance").option("disabled", false);
     },
     updateContent: function (event, form) {
         var self = this;
@@ -347,6 +373,10 @@ var accountEducationFunctions = {
             }
         });
         return false;
+    },
+    uploadFile: function (e) {
+        var self = this;
+        $("#EducationFile").dxDataGrid("instance").refresh();
     }
 }
 
@@ -358,13 +388,20 @@ var homeFeedbackFunctions = {
         var self = this;
         event.preventDefault();
 
-        const data = getFormDataObj(form);
+        var formData = new FormData();
+        formData.append("fullName", $("#FullName").val());
+        formData.append("email", $("#Email").val());
+        formData.append("iFile", $("#IFile")[0].files[0]);
+        formData.append("content", $("#Content").val());
+
         var token = $("[name=__RequestVerificationToken]").val();
         $.ajax({
             type: 'POST',
             url: '/Home/SendFeedback',
-            data: JSON.stringify(data),
-            contentType: 'application/json',
+            data: formData,
+            dataType: 'json',
+            processData: false,
+            contentType: false,
             headers: { "RequestVerificationToken": token },
             success: function (resp) {
                 if (resp) {
@@ -372,6 +409,7 @@ var homeFeedbackFunctions = {
                 }
                 else {
                     $('.feadback_box').addClass('errore_style')
+                    $('.feadback_box').find('input[type="file"]').addClass('not-requerides')
                 }
             }
         });

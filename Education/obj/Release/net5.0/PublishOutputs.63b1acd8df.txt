@@ -412,6 +412,13 @@ C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\OwlCarousel2-2.3.4\test\unit\autoplay.js
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\OwlCarousel2-2.3.4\test\unit\core.js
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\OwlCarousel2-2.3.4\_config.json
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\AboutFiles\Merchant Manual RU.pdf
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\AboutFiles\ppp.jpg
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\AboutFiles\Untitled.png
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\Education\12\ppp.jpg
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\Education\9\Merchant Manual RU.pdf
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\Education\9\ppp.jpg
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\Education\9\Untitled.png
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\2\ppp.jpg
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\2\Untitled.png
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\3\ppp.jpg

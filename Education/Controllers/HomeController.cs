@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System;
 using System.Net;
 using System.Net.Mail;
 
@@ -84,16 +85,12 @@ namespace Education.Controllers
                         Body = "<p>Անուն Ազգանուն՝ " + fullName + "</p><p>Էլ․ հասցե՝ " + email + "</p><p>Հաղորդագրություն՝ " + content + "</p>",
                         From = new MailAddress(_appSettings.EmailSettings.UserName)
                     };
+
                     if (iFile != null)
-                    {
-                        using (var stream = iFile.OpenReadStream())
-                        {
-                            var attachment = new Attachment(stream, iFile.FileName);
-                            mail.Attachments.Add(attachment);
-                        }
-                    }
+                        mail.Attachments.Add(new Attachment(iFile.OpenReadStream(), iFile.FileName));
+
                     mail.To.Add(new MailAddress(_appSettings.EmailSettings.GetEmail));
-                    smtpClient.SendMailAsync(mail);
+                    smtpClient.Send(mail);
                     return Json(true);
                 }
                 return Json(false);

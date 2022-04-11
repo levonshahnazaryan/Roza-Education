@@ -667,6 +667,16 @@ footer {
         .flex();
         justify-content: flex-end;
     }
+
+    .button-box-start {
+        .flex();
+        justify-content: flex-start;
+    }
+
+    .button-box-end {
+        .flex();
+        justify-content: flex-end;
+    }
 }
 
 .education_box {
@@ -825,7 +835,7 @@ footer {
             }
 
             &.errore_style {
-                textarea, input{
+                textarea, input {
                     border: 1px solid red !important;
                 }
             }
@@ -833,3 +843,31 @@ footer {
     }
 }
 
+.file_content {
+    padding: 0px 112px;
+    .flex();
+    padding-bottom: 50px;
+    background-color: @grey;
+
+    .file_box {
+        margin-right: 10px;
+
+        a {
+            padding: 10px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            color: @white;
+            font-size: 14px;
+            background-color: @green;
+        }
+    }
+}
+
+.file_content_education{
+    padding: 0px;
+    padding-top: 15px;
+}
+
+.feadback_content .about_right_box .feadback_box form input.not-requerides {
+    border: 1px solid transparent !important;
+}
