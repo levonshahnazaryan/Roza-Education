@@ -416,3 +416,29 @@ var homeFeedbackFunctions = {
         return false;
     }
 }
+
+var accountVideoEducationFunctions = {
+    events: function () {
+        var self = this;
+    },
+    onContentReady: function (e, refresh) {
+        var self = this;
+
+        if ($("#refxButn").length == 0) {
+            var $customButton1 = $('<div class="icon-margin">').attr("id", "refxButn").dxButton({
+                hint: refresh,
+                icon: 'refresh',
+                onClick: function () {
+                    $("#VideoEducation").dxDataGrid("instance").refresh();
+                }
+            });
+            var toolbar = e.element.find('.dx-toolbar-after');
+            $(toolbar.get(0)).prepend($customButton1);
+        }
+    },
+    uploadFile: function (e) {
+        var self = this;
+        $("#VideoEducation").dxDataGrid("instance").refresh();
+    }
+}
+

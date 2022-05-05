@@ -142,5 +142,12 @@ namespace Education.Controllers
         {
             return PartialView("_AboutFile");
         }
+
+        [HttpGet]
+        [Route("[controller]/VideoEducation")]
+        public ViewResult VideoEducation()
+        {
+            return View("VideoEducation");
+        }
     }
 }

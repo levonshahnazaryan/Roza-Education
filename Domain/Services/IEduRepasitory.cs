@@ -14,6 +14,7 @@ namespace Domain.Services
         IEnumerable<Educations> GetEducationParent();
         Educations FindEducation(int educationsId);
         IEnumerable<EducationsFile> GetEducationsFile(int educationsId);
+        IEnumerable<VideoEducation> GetVideoEducation();
         bool AddEntity<TEntity>(TEntity entity) where TEntity : class;
         bool EditEntity<TEntity>(string values, params object[] keys) where TEntity : class;
         bool EditUsefulLinksImgUrl(int usefulLinksId, string imgUrl);

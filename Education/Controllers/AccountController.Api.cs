@@ -225,5 +225,38 @@ namespace Education.Controllers
             }
             return new EmptyResult();
         }
+
+        [HttpGet]
+        public object GetVideoEducations(DataSourceLoadOptions loadOptions)
+        {
+            return DataSourceLoader.Load(_eduRepository.GetVideoEducation(), loadOptions);
+        }
+
+        [HttpDelete]
+        public void DeleteVideoEducations(int key)
+        {
+            _eduRepository.DeleteEntity<VideoEducation>(key);
+        }
+
+        [HttpPost]
+        [Route("[controller]/UploadVideoEducations")]
+        public ActionResult UploadVideoEducations()
+        {
+            var myFile = Request.Form.Files["VideoEduUpFiles"];
+            var cont = $"{_webHostEnvironment.WebRootPath}/Resources/VideoEducation";
+            if (!Directory.Exists(cont))
+                Directory.CreateDirectory(cont);
+            var path = $"{_webHostEnvironment.WebRootPath}/Resources/VideoEducation/" + myFile.FileName;
+            using (var fileStream = System.IO.File.Create(path))
+            {
+                myFile.CopyTo(fileStream);
+                VideoEducation file = new()
+                {
+                    FileName = myFile.FileName
+                };
+                _eduRepository.AddEntity(file);
+            }
+            return new EmptyResult();
+        }
     }
 }

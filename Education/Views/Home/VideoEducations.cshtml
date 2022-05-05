@@ -1,0 +1,25 @@
+﻿@using Education.Models.Home
+@model VideoEducationsVM
+
+@{
+    ViewData["Title"] = "Տեսանյութեր";
+    Layout = "_Layout";
+}
+
+<div class="about_content">
+    <div class="about_right_box">
+        <div class="about_title_box">
+            <p class="about_title_first">ՏԵՍԱՆՅՈՒԹԵՐ</p>
+            <p class="about_title_last">ՏԵՍԱՆՅՈՒԹԵՐ</p>
+        </div>
+
+        <div class="flex-center">
+            @foreach (var item in Model.GetVideoEducation)
+            {
+                <video width="520" height="440" controls>
+                    <source src="~/Resources/VideoEducation/@item.FileName" type="video/mp4">
+                </video>
+            }
+        </div>
+    </div>
+</div>

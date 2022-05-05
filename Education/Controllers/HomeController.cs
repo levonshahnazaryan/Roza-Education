@@ -55,6 +55,15 @@ namespace Education.Controllers
             });
         }
 
+        [Route("[controller]/VideoEducations")]
+        public IActionResult VideoEducations()
+        {
+            return View("VideoEducations", new VideoEducationsVM
+            {
+                GetVideoEducation = _eduRepository.GetVideoEducation()
+            });
+        }
+
         [Route("[controller]/Feedback")]
         public IActionResult Feedback()
         {

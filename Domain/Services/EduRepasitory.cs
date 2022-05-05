@@ -50,6 +50,10 @@ namespace Domain.Services
         {
             return _dbContext.EducationsFile.Where(m => m.EducationsId == educationsId).AsEnumerable();
         }
+        public IEnumerable<VideoEducation> GetVideoEducation()
+        {
+            return _dbContext.VideoEducation.AsEnumerable();
+        }
         public bool AddEntity<TEntity>(TEntity entity) where TEntity : class
         {
             try

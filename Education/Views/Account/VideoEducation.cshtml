@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Տեսանյութեր";
+}
+
+<div class="clearfix">
+    @(Html.DevExtreme().FileUploader()
+        .SelectButtonText("Ներբեռնել")
+        .ID("VideoEduUpFiles")
+        .Name("VideoEduUpFiles")
+        .Multiple(false)
+        //.Accept("image/*")
+        .LabelText("")
+        .ShowFileList(false)
+        .UploadMode(FileUploadMode.Instantly)
+        .OnUploaded("function(e){ accountVideoEducationFunctions.uploadFile(e) }")
+        .UploadUrl(Url.Action("UploadVideoEducations", "Account"))
+     )
+</div>
+
+<section>
+    @(Html.DevExtreme().DataGrid()
+        .ID("VideoEducation")
+        .Editing(editing =>
+        {
+            editing.RefreshMode(GridEditRefreshMode.Reshape);
+            editing.AllowAdding(false);
+            editing.AllowDeleting(true);
+            editing.AllowUpdating(false);
+            editing.UseIcons(true);
+        })
+        .OnContentReady("function (e) { accountVideoEducationFunctions.onContentReady(e, 'Թարմացնել') }")
+        .Columns(c =>
+        {
+            c.Add().DataField("FileName").DataType(GridColumnDataType.String).Caption("Անվանում");
+        })
+        .DataSource(d =>
+            d.WebApi().Controller("Account")
+            .LoadAction("GetVideoEducations")
+            .DeleteAction("DeleteVideoEducations")
+            .Key("VideoEducationId")
+        )
+        .LoadPanel(m => m.Text("Բեռնվում է․․․"))
+        .FilterRow(filterRow => filterRow.Visible(true).ApplyFilter(GridApplyFilterMode.Auto))
+        .HeaderFilter(headerFilter => headerFilter.Visible(true))
+        .AllowColumnResizing(true)
+        .ColumnHidingEnabled(true)
+        .ShowBorders(true)
+        .Selection(s => s.Mode(SelectionMode.Single))
+        .SearchPanel(searchPanel => searchPanel
+            .Visible(true)
+            .Width(150)
+            .Placeholder("Որոնել․․․")
+        )
+        .Paging(paging => { paging.PageSize(10); })
+        .Pager(pager =>
+        {
+            pager.ShowInfo(true);
+            pager.ShowNavigationButtons(true);
+            pager.ShowPageSizeSelector(true);
+            pager.InfoText("Էջ {0} ({1})");
+        }
+    )
+    .OnCellPrepared("generalFunctions.cellPrepared"))
+</section>

@@ -103,3 +103,5 @@ C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Shared\Compon
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Home\Feedback.cshtml.g.cs
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\_EducationFile.cshtml.g.cs
 C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\_AboutFile.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Home\VideoEducations.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Debug\net5.0\Razor\Views\Account\VideoEducation.cshtml.g.cs
