@@ -781,9 +781,14 @@ footer .footer_title {
   display: flex;
   padding-bottom: 50px;
   background-color: #F7F8FA;
+  justify-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .file_content .file_box {
   margin-right: 10px;
+  margin-top: 27px;
+  white-space: nowrap;
 }
 .file_content .file_box a {
   padding: 10px;

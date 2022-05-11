@@ -103,3 +103,5 @@ C:\Education\Roza-Education\Education\obj\Release\net5.0\Education.pdb
 C:\Education\Roza-Education\Education\obj\Release\net5.0\Education.genruntimeconfig.cache
 C:\Education\Roza-Education\Education\obj\Release\net5.0\Razor\Views\Account\_AboutFile.cshtml.g.cs
 C:\Education\Roza-Education\Education\obj\Release\net5.0\Razor\Views\Account\_EducationFile.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Release\net5.0\Razor\Views\Account\VideoEducation.cshtml.g.cs
+C:\Education\Roza-Education\Education\obj\Release\net5.0\Razor\Views\Home\VideoEducations.cshtml.g.cs

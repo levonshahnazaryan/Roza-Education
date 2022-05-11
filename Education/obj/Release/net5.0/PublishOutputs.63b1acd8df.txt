@@ -424,6 +424,8 @@ C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Reso
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\3\ppp.jpg
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\4\Untitled.png
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\UsefulLinks\5\education.jpg
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\VideoEducation\video-1 - Copy.mp4
+C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\Resources\VideoEducation\video-1.mp4
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\appsettings.json
 C:\Education\Roza-Education\Education\obj\Release\net5.0\PubTmp\Out\wwwroot\js\general.min.js
